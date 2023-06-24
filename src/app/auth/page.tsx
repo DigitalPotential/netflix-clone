@@ -1,16 +1,16 @@
+import Image from "next/image";
+import logo from "public/images/logo.png";
+import Input from "../../../components/Input";
+
 export default function auth() {
     return (
         <div
             className="relative h-full w-full bg-no-repeat bg-center bg-fixed bg-cover"
-            style={{ backgroundImage: `url('/images/hero.jpg')` }}
+            style={{ backgroundImage: `url('/assets/images/hero.jpg')` }}
         >
             <div className="bg-black w-full h-full lg:bg-opacity-50">
                 <nav className="px-12 py-5">
-                    <img
-                        src="/images/logo.png"
-                        alt="site-logo"
-                        className="h-12"
-                    />
+                    <Image src={logo} alt="site-logo" className="h-12" />
                 </nav>
                 <div>
                     <div className="flex justify-center">
@@ -18,6 +18,9 @@ export default function auth() {
                             <h2 className="text-white text-4xl mb-8 font-semibold">
                                 Sign In
                             </h2>
+                            <div className="flex flex-col gap-4">
+                                <Input id="email" label="Email" />
+                            </div>
                         </div>
                     </div>
                 </div>
