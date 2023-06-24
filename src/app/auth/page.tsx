@@ -19,9 +19,10 @@ export default function Auth() {
     }, []);
 
     return (
-        <div
+        <>
+                    <div
             className="relative h-full w-full bg-no-repeat bg-center bg-fixed bg-cover"
-            style={{ backgroundImage: `url('/assets/images/hero.jpg')` }}
+            style={{ backgroundImage: `url('/images/hero.jpg')` }}
         >
             <div className="bg-black w-full h-full lg:bg-opacity-50">
                 <nav className="px-12 py-5">
@@ -34,14 +35,17 @@ export default function Auth() {
                                 {variant === "login" ? "Sign in" : "Register"}
                             </h2>
                             <div className="flex flex-col gap-4">
-                                <Input
-                                    id="name"
-                                    label="Username"
-                                    onChange={(ev: any) =>
-                                        setName(ev.target.value)
-                                    }
-                                    value="{name}"
-                                />
+                                {variant === "register" && (
+                                    <Input
+                                        id="name"
+                                        type="text"
+                                        label="Username"
+                                        value={name}
+                                        onChange={(e: any) =>
+                                            setName(e.target.value)
+                                        }
+                                    />
+                                )}
                                 <Input
                                     id="email"
                                     label="Email"
@@ -83,5 +87,6 @@ export default function Auth() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
