@@ -19,7 +19,13 @@ export default function auth() {
                                 Sign In
                             </h2>
                             <div className="flex flex-col gap-4">
-                                <Input id="email" label="Email" />
+                                <Input
+                                    id="email"
+                                    label="Email"
+                                    onChange={() => {}}
+                                    type="email"
+                                    value=""
+                                />
                             </div>
                         </div>
                     </div>
