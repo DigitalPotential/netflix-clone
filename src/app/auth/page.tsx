@@ -1,8 +1,13 @@
 import Image from "next/image";
 import logo from "public/images/logo.png";
 import Input from "../../../components/Input";
+import { useState } from "react";
 
-export default function auth() {
+export default function Auth() {
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    const [password, setPassword] = useState("");
+
     return (
         <div
             className="relative h-full w-full bg-no-repeat bg-center bg-fixed bg-cover"
@@ -20,13 +25,35 @@ export default function auth() {
                             </h2>
                             <div className="flex flex-col gap-4">
                                 <Input
+                                    id="name"
+                                    label="Username"
+                                    onChange={(ev: any) =>
+                                        setName(ev.target.value)
+                                    }
+                                    value="{name}"
+                                />
+                                <Input
                                     id="email"
                                     label="Email"
-                                    onChange={() => {}}
+                                    onChange={(ev: any) =>
+                                        setEmail(ev.target.value)
+                                    }
                                     type="email"
-                                    value=""
+                                    value="{email}"
+                                />
+                                <Input
+                                    id="password"
+                                    label="Password"
+                                    onChange={(ev: any) =>
+                                        setPassword(ev.target.value)
+                                    }
+                                    type="password"
+                                    value="{email}"
                                 />
                             </div>
+                            <button className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
+                                Login
+                            </button>
                         </div>
                     </div>
                 </div>
