@@ -7,6 +7,8 @@ import { useCallback, useState } from "react";
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 export default function Auth() {
     const router = useRouter();
@@ -106,6 +108,28 @@ export default function Auth() {
                                 >
                                     {variant === "login" ? "Login" : "Sign up"}
                                 </button>
+                                <div className="flex flex-row items-center justify-center gap-10 mt-2">
+                                    <div
+                                        onClick={() =>
+                                            signIn("google", {
+                                                callbackUrl: "/profiles",
+                                            })
+                                        }
+                                        className="w-10 h-10 bg-white flex rounded-full items-center justify-center cursor-pointer hover:opacity-80"
+                                    >
+                                        <FcGoogle size={30} />
+                                    </div>
+                                    <div
+                                        onClick={() =>
+                                            signIn("github", {
+                                                callbackUrl: "/profiles",
+                                            })
+                                        }
+                                        className="w-10 h-10 bg-white flex rounded-full items-center justify-center cursor-pointer hover:opacity-80"
+                                    >
+                                        <FaGithub size={30} />
+                                    </div>
+                                </div>
                                 <p className="text-neutral-500 mt-12">
                                     {variant === "login"
                                         ? "First time using Netflix?"
