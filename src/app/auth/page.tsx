@@ -5,19 +5,36 @@ import logo from "public/images/logo.png";
 import Input from "../../../components/Input";
 import { useCallback, useState } from "react";
 import axios from "axios";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Auth() {
+    const router = useRouter();
+
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
-    const [variant, setVariant] = useState("login");
+    const [variant, setVariant] = useState("signin");
 
     const toggleVariant = useCallback(() => {
         setVariant((currentVariant) =>
-            currentVariant === "login" ? "register" : "login"
+            currentVariant === "signin" ? "register" : "login"
         );
     }, []);
+
+    const login = useCallback(async () => {
+        try {
+            await signIn("credentials", {
+                email,
+                password,
+                callbackUrl: "/",
+            });
+            router.push("/");
+        } catch (error) {
+            console.error(error);
+        }
+    }, [email, password, router]);
 
     const register = useCallback(async () => {
         try {
@@ -26,10 +43,11 @@ export default function Auth() {
                 name,
                 password,
             });
+            login();
         } catch (error) {
             console.log(error);
         }
-    }, [email, name, password]);
+    }, [email, name, password, login]);
 
     return (
         <>
@@ -81,7 +99,9 @@ export default function Auth() {
                                     />
                                 </div>
                                 <button
-                                    onClick={register}
+                                    onClick={
+                                        variant === "login" ? login : register
+                                    }
                                     className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition"
                                 >
                                     {variant === "login" ? "Login" : "Sign up"}
