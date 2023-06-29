@@ -17,11 +17,11 @@ export default function Auth() {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
 
-    const [variant, setVariant] = useState("signin");
+    const [variant, setVariant] = useState("login");
 
     const toggleVariant = useCallback(() => {
         setVariant((currentVariant) =>
-            currentVariant === "signin" ? "register" : "login"
+            currentVariant === "login" ? "register" : "login"
         );
     }, []);
 
@@ -108,7 +108,7 @@ export default function Auth() {
                                 >
                                     {variant === "login" ? "Login" : "Sign up"}
                                 </button>
-                                <div className="flex flex-row items-center justify-center gap-10 mt-2">
+                                <div className="flex flex-row items-center justify-center gap-10 mt-6">
                                     <div
                                         onClick={() =>
                                             signIn("google", {
