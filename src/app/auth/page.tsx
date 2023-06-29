@@ -112,7 +112,7 @@ export default function Auth() {
                                     <div
                                         onClick={() =>
                                             signIn("google", {
-                                                callbackUrl: "/profiles",
+                                                callbackUrl: "/",
                                             })
                                         }
                                         className="w-10 h-10 bg-white flex rounded-full items-center justify-center cursor-pointer hover:opacity-80"
@@ -122,7 +122,7 @@ export default function Auth() {
                                     <div
                                         onClick={() =>
                                             signIn("github", {
-                                                callbackUrl: "/profiles",
+                                                callbackUrl: "/",
                                             })
                                         }
                                         className="w-10 h-10 bg-white flex rounded-full items-center justify-center cursor-pointer hover:opacity-80"
