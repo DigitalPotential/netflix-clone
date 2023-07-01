@@ -30,9 +30,9 @@ export default function Auth() {
             await signIn("credentials", {
                 email,
                 password,
-                callbackUrl: "/",
+                callbackUrl: "/home",
             });
-            router.push("/");
+            router.push("/home");
         } catch (error) {
             console.error(error);
         }
@@ -112,7 +112,7 @@ export default function Auth() {
                                     <div
                                         onClick={() =>
                                             signIn("google", {
-                                                callbackUrl: "/",
+                                                callbackUrl: "/home",
                                             })
                                         }
                                         className="w-10 h-10 bg-white flex rounded-full items-center justify-center cursor-pointer hover:opacity-80"
@@ -122,7 +122,7 @@ export default function Auth() {
                                     <div
                                         onClick={() =>
                                             signIn("github", {
-                                                callbackUrl: "/",
+                                                callbackUrl: "/home",
                                             })
                                         }
                                         className="w-10 h-10 bg-white flex rounded-full items-center justify-center cursor-pointer hover:opacity-80"
