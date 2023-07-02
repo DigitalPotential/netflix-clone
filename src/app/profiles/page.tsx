@@ -1,7 +1,7 @@
 "use client"
 import { redirect, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-export default function profiles() {
+export default function Profiles() {
     const { data: session } = useSession({
         required: true,
         onUnauthenticated() {
