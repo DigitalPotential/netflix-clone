@@ -6,13 +6,10 @@ import Input from "../../../components/Input";
 import { useCallback, useState } from "react";
 import axios from "axios";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 
 export default function Auth() {
-    const router = useRouter();
-
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
@@ -30,13 +27,12 @@ export default function Auth() {
             await signIn("credentials", {
                 email,
                 password,
-                callbackUrl: "/home",
+                callbackUrl: "/profiles",
             });
-            router.push("/home");
         } catch (error) {
             console.error(error);
         }
-    }, [email, password, router]);
+    }, [email, password]);
 
     const register = useCallback(async () => {
         try {
@@ -112,7 +108,7 @@ export default function Auth() {
                                     <div
                                         onClick={() =>
                                             signIn("google", {
-                                                callbackUrl: "/home",
+                                                callbackUrl: "/profiles",
                                             })
                                         }
                                         className="w-10 h-10 bg-white flex rounded-full items-center justify-center cursor-pointer hover:opacity-80"
@@ -122,7 +118,7 @@ export default function Auth() {
                                     <div
                                         onClick={() =>
                                             signIn("github", {
-                                                callbackUrl: "/home",
+                                                callbackUrl: "/profiles",
                                             })
                                         }
                                         className="w-10 h-10 bg-white flex rounded-full items-center justify-center cursor-pointer hover:opacity-80"

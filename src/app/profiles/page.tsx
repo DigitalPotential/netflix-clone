@@ -1,8 +1,8 @@
 "use client"
 import { redirect, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import defaultblue from "../../public/images/default-blue.png";
 import Image from "next/image";
+import defaultblue from "../../../public/images/defaultblue.png";
 
 export default function Profiles() {
     const { data: session } = useSession({
