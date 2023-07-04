@@ -1,6 +1,9 @@
 "use client"
 import { redirect, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import defaultblue from "../../public/images/default-blue.png";
+import Image from "next/image";
+
 export default function Profiles() {
     const { data: session } = useSession({
         required: true,
@@ -34,7 +37,7 @@ export default function Profiles() {
                                         transition
                                         "
                             >
-                                <img src="/assets/default-blue.png" alt="Watch Profile" />
+                                <Image src={defaultblue} alt="Profile-image" />
                             </div>
                             <div className="mt-4 text-neutral-400 text-2xl text-center group-hover:text-white">
                                 {session?.user?.name}
