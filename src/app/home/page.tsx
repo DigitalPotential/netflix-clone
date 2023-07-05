@@ -3,6 +3,7 @@ import { signOut } from 'next-auth/react'
 import { useSession } from "next-auth/react"
 import { redirect } from "next/navigation"
 import useCurrentUser from "../../../hooks/useCurrentUser"
+import Navbar from '@components/Navbar'
 
 export default function Home()  {
 
@@ -15,8 +16,11 @@ export default function Home()  {
     const { data: user } = useCurrentUser();
 
     return (
+        <>
+        <Navbar />
         <div className='h-screen w-screen flex justify-center items-center'>
             <button className='h-10 w-32 bg-white' onClick={() => signOut({ callbackUrl: '/login' })}>Logout!</button>
         </div>
+        </>
     )
 }
