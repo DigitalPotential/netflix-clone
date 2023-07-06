@@ -22,7 +22,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
     return (
         <div className="bg-black absolute top-14 w-56 right-0 py-5 flex-col border-2 border-gray-800 flex rounded-lg">
             <div className="flex flex-col gap-3">
-                <div className="px-3 group/item flex flex-row gap-3 items-center w-full">
+                <div className="w-20 px-3 group/item flex flex-row gap-3 items-center">
                 <Image src={defaultblue} alt="Profile-image" />
                     <p className="text-white text-sm group-hover/item:underline">
                         {session?.user?.name}
