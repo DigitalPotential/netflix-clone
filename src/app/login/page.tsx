@@ -55,7 +55,7 @@ export default function Auth() {
             >
                 <div className="bg-black w-full h-full lg:bg-opacity-50">
                     <nav className="px-12 py-5">
-                        <Image src={logo} alt="site-logo" className="h-12" />
+                        <Image src={logo} alt="site-logo" className="w-52" />
                     </nav>
                     <div>
                         <div className="flex justify-center">
@@ -108,7 +108,7 @@ export default function Auth() {
                                     <div
                                         onClick={() =>
                                             signIn("google", {
-                                                callbackUrl: "/profiles",
+                                                callbackUrl: "/profiles"
                                             })
                                         }
                                         className="w-10 h-10 bg-white flex rounded-full items-center justify-center cursor-pointer hover:opacity-80"
