@@ -3,7 +3,6 @@ import logo from "../../public/images/logo.png";
 import background from "../../public/images/hero.jpg";
 import Link from "next/link";
 export default function Home() {
-
     return (
         <>
             {/* Header */}
