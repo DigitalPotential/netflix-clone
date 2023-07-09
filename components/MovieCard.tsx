@@ -2,6 +2,7 @@ import { BsFillPlayFill } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 import { BiChevronDown } from "react-icons/bi";
 import Image from "next/image";
+import FavoriteButton from "./FavoriteButton";
 
 interface MovieCardProps {
     data: Record<string, any>;
@@ -30,7 +31,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                         >
                             <BsFillPlayFill size="30" />
                         </div>
-
+                        <FavoriteButton movieId={data?.id} />
                         <div
                             onClick={() => openModal(data?.id)}
                             className="cursor-pointer ml-auto group/item w-6 h-6 lg:w-10 lg:h-10 border-white border-2 rounded-full flex justify-center items-center transition hover:border-neutral-300"
