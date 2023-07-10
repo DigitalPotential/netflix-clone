@@ -5,8 +5,9 @@ import { redirect } from "next/navigation"
 import useCurrentUser from "../../../hooks/useCurrentUser"
 import Navbar from '@components/Navbar'
 import BillBoard from '@components/Billboard'
-import MovieList from '@components/Movielist'
+import MovieList from '@components/MovieList'
 import useMovieList from "../../../hooks/useMovieList"
+import useFavorites from "../../../hooks/useFavorites"
 
 export default function Home()  {
 
@@ -17,6 +18,7 @@ export default function Home()  {
         }
     })
     const { data: user } = useCurrentUser();
+    const { data: favorites = [] } = useFavorites();
     const { data: movies = [] } = useMovieList();
 
 
@@ -26,9 +28,7 @@ export default function Home()  {
         <BillBoard />
         <div className="pb-40">
                 <MovieList title="Trending Now" data={movies} />
-        </div>
-        <div className='h-screen w-screen flex justify-center items-center'>
-            <button className='h-10 w-32 bg-white' onClick={() => signOut({ callbackUrl: '/login' })}>Logout!</button>
+                <MovieList title="My List" data={favorites} />
         </div>
         </>
     )
