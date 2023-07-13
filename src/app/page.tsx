@@ -6,12 +6,8 @@ export default function Home() {
     return (
         <>
             {/* Header */}
-            <div className="">
-                <Image
-                    src={background}
-                    className="relative bg-no-repeat bg-center bg-fixed bg-cover h-screen"
-                    alt="background"
-                />
+            <div className="relative h-full w-full bg-no-repeat bg-center bg-fixed bg-cover"
+                style={{ backgroundImage: `url('/images/hero.jpg')` }}>
                 <div className="absolute inset-0">
                     <div className="absolute inset-0 bg-gradient-to-t from-transparent to-stone-950"></div>
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-stone-950"></div>
