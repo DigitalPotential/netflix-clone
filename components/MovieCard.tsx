@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { BiChevronDown } from "react-icons/bi";
 import Image from "next/image";
 import FavoriteButton from "./FavoriteButton";
+import useInfoModal from "../hooks/useInfoModal";
 
 interface MovieCardProps {
     data: Record<string, any>;
@@ -10,6 +11,7 @@ interface MovieCardProps {
 
 const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
     const router = useRouter();
+    const { openModal } = useInfoModal();
     return (
         <div className="group bg-zinc-900 col-span relative h-[12vw]">
             <Image
@@ -17,6 +19,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                 alt="Movie Thumbnail"
                 fill
                 className="cursor-pointer object-cover transition duration shadow-xl rounded-md group-hover:opacity-90 sm:group-hover:opacity-0 delay-300 w-full h-[12vw]"
+                priority
             />
             <div className="opacity-0 absolute top-0 transition duration-200 z-10 invisible sm:visible delay-300 w-full scale-0 group-hover:scale-110 group-hover:-translate-y-[6vw] group-hover:translate-x-[2vw] group-hover:opacity-100">
                 <Image
@@ -25,6 +28,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
                     alt="Thumbnail"
                     width={300}
                     height={200}
+                    priority
                 />
                 <div className="z-10 bg-zinc-800 p-2 lg:p-4 absolute w-full transition shadow-md rounded-b-md">
                     <div className="flex flex-row items-center gap-3">
